@@ -146,6 +146,25 @@ public class ASA implements Parser{
         reducciones.put("R16", 1);
         reducciones.put("R17", 0);
 
+        HashMap<String, String> reduccionesSimbolo = new HashMap<>();
+        reduccionesSimbolo.put("R1", "Q");
+        reduccionesSimbolo.put("R2", "D");
+        reduccionesSimbolo.put("R3", "D");
+        reduccionesSimbolo.put("R4", "P");
+        reduccionesSimbolo.put("R5", "P");
+        reduccionesSimbolo.put("R6", "A");
+        reduccionesSimbolo.put("R7", "A1");
+        reduccionesSimbolo.put("R8", "A1");
+        reduccionesSimbolo.put("R9", "A2");
+        reduccionesSimbolo.put("R10", "A3");
+        reduccionesSimbolo.put("R11", "A3");
+        reduccionesSimbolo.put("R12", "T");
+        reduccionesSimbolo.put("R13", "T1");
+        reduccionesSimbolo.put("R14", "T1");
+        reduccionesSimbolo.put("R15", "T2");
+        reduccionesSimbolo.put("R16", "T3");
+        reduccionesSimbolo.put("R17", "T3");
+
         int estadoActual;
         Object accion;
         Object simboloActual;
@@ -166,7 +185,11 @@ public class ASA implements Parser{
             else if(accion instanceof Integer){
                 
             } else if(accion instanceof String){
-                
+                popPila = reducciones.get(accion.toString());
+                simboloActual =  reduccionesSimbolo.get(accion.toString());
+                i--;
+                for(int j=0; j<popPila; j++)
+                    pila.pop();
             }
         }
         if(hayErrores){
