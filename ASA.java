@@ -180,6 +180,9 @@ public class ASA implements Parser{
                 break;
             }
             else if(accion.equals("aceptar")){
+                pila.push(Integer.parseInt(accion.toString()));
+                i++;
+                simboloActual = tokens.get(i).tipo; 
                 break;
             }
             else if(accion instanceof Integer){
